@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="knight" class="com.spring.study.spting_quickstart.knight.SlayDragonKnight">
+	<constructor-arg ref="quest" />
+	</bean>
+	<bean id="quest" class="com.spring.study.spting_quickstart.quest.SlayDragonQuest">
+	</bean>
+	
+	<bean id="minstrel" class="com.spring.study.spting_quickstart.common.Minstrel"></bean>
+	
+	<aop:config>
+		<aop:aspect ref="minstrel">
+			<aop:pointcut id="sing"
+			expression="execution(* *.fight(..))"/>
+			<aop:before pointcut-ref="sing"
+			method="singBeforeFight"/>
+			<aop:after pointcut-ref="sing"
+			method="singAfterFight"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
