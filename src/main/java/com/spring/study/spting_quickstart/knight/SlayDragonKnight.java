@@ -25,8 +25,8 @@ public class SlayDragonKnight implements Knight {
     /** 
      * @see com.spring.study.spting_quickstart.knight.Knight#fight()
      */
-    public String fight() {
-        return this.quest.embark();
+    public void fight() {
+        System.out.println(this.quest.embark());
     }
 
     /**

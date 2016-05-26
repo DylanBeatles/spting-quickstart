@@ -10,5 +10,5 @@ package com.spring.study.spting_quickstart.knight;
  * @version $Id: Knight.java, v 0.1 May 25, 2016 3:17:31 PM wb-zhanglu.y Exp $
  */
 public interface Knight {
-    String fight();
+    void fight();
 }
